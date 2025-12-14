@@ -1,4 +1,4 @@
-SELECT
+SELECT 
     YEAR(O.SALES_DATE) AS YEAR,
     MONTH(O.SALES_DATE) AS MONTH,
     U.GENDER AS GENDER,
@@ -14,3 +14,6 @@ GROUP BY
 ORDER BY
     YEAR, MONTH, GENDER
 ;
+
+-- SELECT에 집계 함수 없이 등장하는 컬럼은 반드시 GROUP BY에 모두 포함되어야 함
+-- SELECT 기준으로 보면, 집계 대상은 USERS 하나이고 나머지는 모두 기준 축(dimensions)이기 때문에 GROUP BY에는 집계 대상을 제외하고 정의해야 함
