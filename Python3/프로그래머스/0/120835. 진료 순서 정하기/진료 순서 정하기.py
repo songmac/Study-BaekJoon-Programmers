@@ -1,4 +1,4 @@
 def solution(emergency):
-    sorted_emergency = sorted(emergency, reverse=True)
-    rank = {value: idx + 1 for idx, value in enumerate(sorted_emergency)}
-    return [rank[value] for value in emergency]
+    d = {v:i+1 for i, v in enumerate(sorted(emergency, reverse=True))}
+    return [d[e] for e in emergency]
+
