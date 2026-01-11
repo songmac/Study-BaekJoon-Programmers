@@ -1,0 +1,17 @@
+SELECT 
+    R.FOOD_TYPE, 
+    R.REST_ID, 
+    R.REST_NAME, 
+    R.FAVORITES
+FROM REST_INFO R
+JOIN (
+    SELECT
+        FOOD_TYPE,
+        MAX(FAVORITES) AS MAX_FAV
+    FROM REST_INFO
+    GROUP BY FOOD_TYPE
+) M 
+    ON R.FOOD_TYPE = M.FOOD_TYPE -- 서브쿼리로 음식종류별 최대 즐겨찾기 수만 계산
+    AND R.FAVORITES = M.MAX_FAV -- 그 최대값을 가진 식당 행만 선택
+ORDER BY FOOD_TYPE DESC
+;
