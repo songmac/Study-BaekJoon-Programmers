@@ -1,10 +1,3 @@
 def solution(rsp):
-    result = ''
-    for i in rsp:
-        if i == '0':
-            result += '5'
-        elif i == '2':
-            result += '0'
-        elif i == '5':
-            result += '2'
-    return result
+    mapping = {'0': '5', '2': '0', '5': '2'}
+    return ''.join(mapping[i] for i in rsp)
