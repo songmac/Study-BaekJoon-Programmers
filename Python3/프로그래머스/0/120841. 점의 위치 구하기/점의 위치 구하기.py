@@ -1,9 +1,9 @@
 def solution(dot):
-    if dot[0] > 0 and dot[1] > 0:
-        return 1
-    elif dot[0] < 0 and dot[1] > 0:
-        return 2
-    elif dot[0] < 0 and dot[1] < 0:
-        return 3
-    elif dot[0] > 0 and dot[1] < 0:
-        return 4
+    x, y = dot
+    quadrant = {
+        (True, True): 1,
+        (False, True): 2,
+        (False, False): 3,
+        (True, False): 4
+    }
+    return quadrant[(x > 0, y > 0)] # 튜플 (True / False, True / False) 값을 나타냄
