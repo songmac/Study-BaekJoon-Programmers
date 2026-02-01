@@ -1,5 +1,4 @@
+import math
+
 def solution(box, n):
-    result = 1
-    for i in box:
-        result *= i // n
-    return result
+    return math.prod(i // n for i in box)
